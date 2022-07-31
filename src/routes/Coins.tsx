@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useSetRecoilState } from "recoil";
+import { isDarkAtom } from "../atoms";
 import { fetchCoins } from "./api";
 
 const Container = styled.div`
@@ -52,6 +53,17 @@ const Img = styled.img`
   margin-right: 10px;
 `;
 
+const ToggleBtn = styled.button`
+  border: 2px solid ${(props) => props.theme.textColor};
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  color: ${(props) => props.theme.textColor};
+  font-weight: bold;
+  margin: 10px;
+`;
+
 interface ICoin {
   id: string;
   name: string;
@@ -62,7 +74,11 @@ interface ICoin {
   type: string;
 }
 
-function Coins() {
+interface ICoinsProps {}
+
+function Coins({}: ICoinsProps) {
+  const setDarkAtom = useSetRecoilState(isDarkAtom);
+  const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
   return (
     <Container>
@@ -71,6 +87,7 @@ function Coins() {
       </Helmet>
       <Header>
         <Title>Coin</Title>
+        <ToggleBtn onClick={toggleDarkAtom}>Toggle</ToggleBtn>
       </Header>
       {isLoading ? (
         <Loading>Loading...</Loading>

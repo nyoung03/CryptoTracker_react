@@ -1,9 +1,10 @@
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Router from "./Router";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { HelmetProvider } from "react-helmet-async";
 import { darkTheme, lightTheme } from "./theme";
-import { useState } from "react";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "./atoms";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -68,38 +69,15 @@ a {
 }
 `;
 
-const ToggleBtn = styled.button`
-  border: 2px solid ${(props) => props.theme.textColor};
-  background-color: transparent;
-  padding: 5px 10px;
-  border-radius: 15px;
-  cursor: pointer;
-  float: right;
-  margin: 10px;
-  color: ${(props) => props.theme.textColor};
-  font-weight: bold;
-`;
-
 function App() {
-  const [isDark, setIsDark] = useState(true);
-  const toggleDark = () => {
-    if (isDark === true) {
-      setIsDark(false);
-    } else {
-      setIsDark(true);
-    }
-  };
+  const isDark = useRecoilValue(isDarkAtom);
   return (
     <>
-      <ThemeProvider theme={isDark ? lightTheme : darkTheme}>
-        <ToggleBtn onClick={toggleDark}>
-          {isDark ? "Dark Mode" : "Light Mode"}
-        </ToggleBtn>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
         <HelmetProvider>
           <Router />
         </HelmetProvider>
-        <ReactQueryDevtools initialIsOpen={true} />
       </ThemeProvider>
     </>
   );
