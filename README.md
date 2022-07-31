@@ -1,46 +1,20 @@
-# Getting Started with Create React App
+# CryptoTracker_react
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+노마드 코더 리액트 마스터 강의를 듣고 학습한 프로젝트입니다.
+React Query 를 이용하여 Crypto Price API 의 데이터를 가져오는 것과 Styled Components 를 이용해 확장 가능한 디자인 시스템 그리고 다크모드 등을 만드는 방법을 배웠습니다. 
+Apex Charts 를 활용하여 암호화폐 시세 변화 데이터를 시각화 하는 방법을 배웠습니다.
 
-## Available Scripts
+### 스텍
+- react
+- styled-components
+- recoil
+- react-query
+- gh-pages
 
-In the project directory, you can run:
+### 기간
+2022.07.25 ~ 
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 주요 기능
+- 코인 리스트를 나열
+- 다크모드와 라이트 모드
+- 코인의 세부 정보와 금액, 차트 
